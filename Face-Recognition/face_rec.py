@@ -18,7 +18,7 @@ transform = transforms.Compose([
 ])
 
 # Load and preprocess images from the folder to create a database of embeddings
-def load_face_database(path='images'):
+def load_face_database(path='Face-Recognition/images'):
     database = {}
     for filename in os.listdir(path):
         if filename.lower().endswith(('jpg', 'png', 'jpeg')):
@@ -60,7 +60,7 @@ def main():
         faces = face_cascade.detectMultiScale(gray, 1.1, 4)
 
         for (x, y, w, h) in faces:
-            cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 0, 0), 2)  # Change color to red
+            cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 0, 0), 2)
 
             face = frame[y:y+h, x:x+w]
             face_rgb = cv2.cvtColor(face, cv2.COLOR_BGR2RGB)
@@ -70,7 +70,7 @@ def main():
             name, distance = recognize_face(embedding, database)
             match_percentage = max(0, 100 - distance * 100)
 
-            cv2.putText(frame, f"{name}: {match_percentage:.2f}%", (x, y-10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 2)  # Change text color to red
+            cv2.putText(frame, f"{name}: {match_percentage:.2f}%", (x, y-10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 2)
 
         cv2.imshow('Face Detection and Recognition', frame)
         
