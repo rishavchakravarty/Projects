@@ -1,84 +1,67 @@
-import cv2
-from facenet_pytorch import MTCNN, InceptionResnetV1
-import torch
-from torchvision import transforms
-from PIL import Image
-import os
+from reportlab.lib.pagesizes import letter
+from reportlab.pdfgen import canvas
+from reportlab.lib.styles import getSampleStyleSheet
+from reportlab.platypus import Paragraph, Spacer, SimpleDocTemplate, PageBreak, Table, TableStyle
+from reportlab.lib.units import inch
+from reportlab.lib import colors
 
-# Initialize MTCNN and InceptionResnetV1
-device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-mtcnn = MTCNN(keep_all=True, device=device)
-resnet = InceptionResnetV1(pretrained='vggface2').eval().to(device)
+def add_custom_title_page(canvas, doc):
+    canvas.saveState()
+    canvas.setFont('Times-Bold', 16)
+    canvas.drawCentredString(letter[0]/2.0, letter[1]-108, "Project-1: Division Table Algorithm")
+    canvas.setFont('Times-Roman', 14)
+    canvas.drawCentredString(letter[0]/2.0, letter[1]-128, "Prepared by: Kinjal Pandey, Daniella Efrach, Mallika Gupta, Kritika Partha")
+    canvas.restoreState()
 
-# Transformation for face images
-transform = transforms.Compose([
-    transforms.Resize((160, 160)),
-    transforms.ToTensor(),
-    transforms.Normalize([0.5, 0.5, 0.5], [0.5, 0.5, 0.5])
-])
+def extended_gcd(a, b):
+    table = [["Quotient", "Remainder", "X", "Y"]]  # Add headers to the table
+    x0, x1 = 1, 0
+    y0, y1 = 0, 1
+    while b != 0:
+        q = a // b
+        a, b = b, a % b
+        x0, x1 = x1, x0 - q * x1
+        y0, y1 = y1, y0 - q * y1
+        table.append([q, a, x1, y1])
+    return a, x0, y0, table
 
-# Load and preprocess images from the folder to create a database of embeddings
-def load_face_database(path='Face-Recognition/images'):
-    database = {}
-    for filename in os.listdir(path):
-        if filename.lower().endswith(('jpg', 'png', 'jpeg')):
-            name = os.path.splitext(filename)[0]
-            img = Image.open(os.path.join(path, filename))
-            img_cropped = mtcnn(img)
-            if img_cropped is not None:
-                if img_cropped.ndim == 4:
-                    img_cropped = img_cropped[0]
-                embedding = resnet(img_cropped.unsqueeze(0).to(device))
-                database[name] = embedding.detach().cpu()[0]
-    return database
+def generate_pdf_content(a, b, gcd, x, y, table, styles):
+    content = [Paragraph(f"<b>Extended Euclidean Algorithm Steps for a = {a}, b = {b}</b>", styles['Heading2']), Spacer(1, 0.2 * inch)]
+    t = Table(table)
+    t.setStyle(TableStyle([
+        ('BACKGROUND', (0,0), (-1,0), colors.grey),
+        ('ALIGN', (0,0), (-1,-1), 'CENTER'),
+        ('GRID', (0,0), (-1,-1), 1, colors.black),
+        ('LEFTPADDING', (0,0), (-1,-1), 3),
+        ('RIGHTPADDING', (0,0), (-1,-1), 3),
+    ]))
+    content.append(t)
+    result = Paragraph(f"<b>Final Result:</b> gcd({a}, {b}) = {gcd}, x = {x}, y = {y}", styles['BodyText'])
+    content.append(result)
+    content.append(Spacer(1, 0.2 * inch))
+    return content
 
-# Compare face embedding to the database and find the closest match
-def recognize_face(embedding, database, threshold=0.8):
-    min_dist = float('inf')
-    name = "Unknown Person"
-    embedding = embedding.to('cpu')
-    for db_name, db_embedding in database.items():
-        dist = torch.nn.functional.pairwise_distance(embedding, db_embedding.unsqueeze(0)).min().item()
-        if dist < min_dist:
-            min_dist, name = dist, db_name
-    if min_dist > threshold:
-        return "Unknown Person", min_dist
-    return name, min_dist
+def create_pdf(output_filename, all_content):
+    doc = SimpleDocTemplate(output_filename, pagesize=letter)
+    Story = [Spacer(1, 2 * inch)]  # Spacer at the start
+    styles = getSampleStyleSheet()
 
-database = load_face_database()
+    for content in all_content:
+        Story.extend(content)
+        Story.append(PageBreak())
 
-def main():
-    cap = cv2.VideoCapture(0)
-    face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+    doc.build(Story, onFirstPage=add_custom_title_page, onLaterPages=add_custom_title_page)
 
-    while True:
-        ret, frame = cap.read()
-        if not ret:
-            break
+# Main execution
+pairs = [(384168, 39096), (494752, 296864), (17601969, 2364768)]
+output_filename = "gcd_output.pdf"
+all_content = []
+styles = getSampleStyleSheet()
 
-        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        faces = face_cascade.detectMultiScale(gray, 1.1, 4)
+for a, b in pairs:
+    gcd, x, y, table = extended_gcd(a, b)
+    content = generate_pdf_content(a, b, gcd, x, y, table, styles)
+    all_content.append(content)
 
-        for (x, y, w, h) in faces:
-            cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 0, 0), 2)
-
-            face = frame[y:y+h, x:x+w]
-            face_rgb = cv2.cvtColor(face, cv2.COLOR_BGR2RGB)
-            face_pil = Image.fromarray(face_rgb)
-            face_tensor = transform(face_pil).unsqueeze(0).to(device)
-            embedding = resnet(face_tensor)
-            name, distance = recognize_face(embedding, database)
-            match_percentage = max(0, 100 - distance * 100)
-
-            cv2.putText(frame, f"{name}: {match_percentage:.2f}%", (x, y-10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 2)
-
-        cv2.imshow('Face Detection and Recognition', frame)
-        
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            break
-
-    cap.release()
-    cv2.destroyAllWindows()
-
-if __name__ == "__main__":
-    main()
+create_pdf(output_filename, all_content)
+print("Output generated in gcd_output.pdf")
