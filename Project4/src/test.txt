@@ -1,0 +1,8 @@
+insert A 1 1 10 10
+insert B 2 2 12 8
+insert A 1 1 10 10
+insert C 2 2 12 8
+insert A 1 1 10 10
+insert B 2 2 10 8
+regionsearch 0 0 15 15
+intersections
