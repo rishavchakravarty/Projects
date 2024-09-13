@@ -1,0 +1,113 @@
+Point inserted: (a1, 10, 10)
+Point inserted: (a2, 10, 10)
+Point inserted: (a3, 10, 10)
+Point inserted: (a4, 10, 10)
+Point inserted: (a5, 10, 10)
+Point inserted: (x1, 20, 20)
+Point inserted: (x2, 20, 20)
+Point inserted: (b1, 200, 200)
+Point inserted: (b2, 200, 201)
+Point inserted: (b3, 200, 200)
+Point inserted: (c1, 600, 600)
+Point inserted: (c2, 600, 600)
+Point inserted: (c3, 600, 601)
+Point inserted: (d1, 200, 600)
+Point inserted: (d2, 200, 601)
+Point inserted: (d3, 200, 601)
+Point inserted: (e1, 600, 200)
+Point inserted: (e2, 600, 201)
+Point inserted: (e3, 600, 201)
+Point inserted: (f1, 0, 1000)
+Point inserted: (f2, 0, 1001)
+Point inserted: (f3, 1, 1000)
+Duplicate points:
+(10, 10)
+(20, 20)
+(200, 200)
+(600, 201)
+(200, 601)
+(600, 600)
+Point inserted: (f1, 600, 202)
+Point removed: (f1, 600, 202)
+Points intersecting region (11, 10, 2, 2):
+7 quadtree nodes visited
+Points intersecting region (10, 11, 2, 2):
+7 quadtree nodes visited
+SkipList dump:
+Node has depth 4, Value (null)
+Node has depth 1, Value (a1, 10, 10)
+Node has depth 1, Value (a2, 10, 10)
+Node has depth 1, Value (a3, 10, 10)
+Node has depth 1, Value (a4, 10, 10)
+Node has depth 1, Value (a5, 10, 10)
+Node has depth 1, Value (b1, 200, 200)
+Node has depth 2, Value (b2, 200, 201)
+Node has depth 2, Value (b3, 200, 200)
+Node has depth 1, Value (c1, 600, 600)
+Node has depth 2, Value (c2, 600, 600)
+Node has depth 3, Value (c3, 600, 601)
+Node has depth 4, Value (d1, 200, 600)
+Node has depth 3, Value (d2, 200, 601)
+Node has depth 2, Value (d3, 200, 601)
+Node has depth 2, Value (e1, 600, 200)
+Node has depth 3, Value (e2, 600, 201)
+Node has depth 2, Value (e3, 600, 201)
+Node has depth 1, Value (f1, 0, 1000)
+Node has depth 2, Value (f2, 0, 1001)
+Node has depth 1, Value (f3, 1, 1000)
+Node has depth 1, Value (x1, 20, 20)
+Node has depth 2, Value (x2, 20, 20)
+SkipList size is: 22
+QuadTree dump:
+Node at 0, 0, 1024: Internal
+  Node at 0, 0, 512: Internal
+    Node at 0, 0, 256: Internal
+      Node at 0, 0, 128: Internal
+        Node at 0, 0, 64: Internal
+          Node at 0, 0, 32: Internal
+            Node at 0, 0, 16:
+            (a1, 10, 10)
+            (a2, 10, 10)
+            (a5, 10, 10)
+            (a4, 10, 10)
+            (a3, 10, 10)
+            Node at 16, 0, 16: Empty
+            Node at 0, 16, 16: Empty
+            Node at 16, 16, 16:
+            (x2, 20, 20)
+            (x1, 20, 20)
+          Node at 32, 0, 32: Empty
+          Node at 0, 32, 32: Empty
+          Node at 32, 32, 32: Empty
+        Node at 64, 0, 64: Empty
+        Node at 0, 64, 64: Empty
+        Node at 64, 64, 64: Empty
+      Node at 128, 0, 128: Empty
+      Node at 0, 128, 128: Empty
+      Node at 128, 128, 128:
+      (b3, 200, 200)
+      (b2, 200, 201)
+      (b1, 200, 200)
+    Node at 256, 0, 256: Empty
+    Node at 0, 256, 256: Empty
+    Node at 256, 256, 256: Empty
+  Node at 512, 0, 512:
+  (e3, 600, 201)
+  (e2, 600, 201)
+  (e1, 600, 200)
+  Node at 0, 512, 512: Internal
+    Node at 0, 512, 256:
+    (d1, 200, 600)
+    (d2, 200, 601)
+    (d3, 200, 601)
+    Node at 256, 512, 256: Empty
+    Node at 0, 768, 256:
+    (f3, 1, 1000)
+    (f2, 0, 1001)
+    (f1, 0, 1000)
+    Node at 256, 768, 256: Empty
+  Node at 512, 512, 512:
+  (c3, 600, 601)
+  (c2, 600, 600)
+  (c1, 600, 600)
+29 quadtree nodes printed

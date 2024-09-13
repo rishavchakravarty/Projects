@@ -1,0 +1,356 @@
+Point inserted: (r1, 10, 10)
+Rectangle rejected: (11, 11, 0, 0)
+Point inserted: (r2, 15, 15)
+Point inserted: (r3, 7, 7)
+Point inserted: (r4, 20, 25)
+Point inserted: (r4, 20, 12)
+Point inserted: (r5, 6, 7)
+Point inserted: (r12, 108, 136)
+Point inserted: (r14, 120, 117)
+Point inserted: (r15, 120, 117)
+SkipList dump:
+Node has depth 3, Value (null)
+Node has depth 2, Value (r1, 10, 10)
+Node has depth 3, Value (r12, 108, 136)
+Node has depth 3, Value (r14, 120, 117)
+Node has depth 1, Value (r15, 120, 117)
+Node has depth 2, Value (r2, 15, 15)
+Node has depth 2, Value (r3, 7, 7)
+Node has depth 2, Value (r4, 20, 12)
+Node has depth 3, Value (r4, 20, 25)
+Node has depth 2, Value (r5, 6, 7)
+SkipList size is: 9
+QuadTree dump:
+Node at 0, 0, 1024: Internal
+  Node at 0, 0, 512: Internal
+    Node at 0, 0, 256: Internal
+      Node at 0, 0, 128: Internal
+        Node at 0, 0, 64: Internal
+          Node at 0, 0, 32: Internal
+            Node at 0, 0, 16: Internal
+              Node at 0, 0, 8:
+              (r3, 7, 7)
+              (r5, 6, 7)
+              Node at 8, 0, 8: Empty
+              Node at 0, 8, 8: Empty
+              Node at 8, 8, 8:
+              (r1, 10, 10)
+              (r2, 15, 15)
+            Node at 16, 0, 16:
+            (r4, 20, 12)
+            Node at 0, 16, 16: Empty
+            Node at 16, 16, 16:
+            (r4, 20, 25)
+          Node at 32, 0, 32: Empty
+          Node at 0, 32, 32: Empty
+          Node at 32, 32, 32: Empty
+        Node at 64, 0, 64: Empty
+        Node at 0, 64, 64: Empty
+        Node at 64, 64, 64:
+        (r15, 120, 117)
+        (r14, 120, 117)
+      Node at 128, 0, 128: Empty
+      Node at 0, 128, 128:
+      (r12, 108, 136)
+      Node at 128, 128, 128: Empty
+    Node at 256, 0, 256: Empty
+    Node at 0, 256, 256: Empty
+    Node at 256, 256, 256: Empty
+  Node at 512, 0, 512: Empty
+  Node at 0, 512, 512: Empty
+  Node at 512, 512, 512: Empty
+29 quadtree nodes printed
+Point not removed: r_r
+Point not removed: inExistRec
+Found (r4, 20, 12)
+Found (r4, 20, 25)
+Point removed: (r4, 20, 12)
+SkipList dump:
+Node has depth 3, Value (null)
+Node has depth 2, Value (r1, 10, 10)
+Node has depth 3, Value (r12, 108, 136)
+Node has depth 3, Value (r14, 120, 117)
+Node has depth 1, Value (r15, 120, 117)
+Node has depth 2, Value (r2, 15, 15)
+Node has depth 2, Value (r3, 7, 7)
+Node has depth 3, Value (r4, 20, 25)
+Node has depth 2, Value (r5, 6, 7)
+SkipList size is: 8
+QuadTree dump:
+Node at 0, 0, 1024: Internal
+  Node at 0, 0, 512: Internal
+    Node at 0, 0, 256: Internal
+      Node at 0, 0, 128: Internal
+        Node at 0, 0, 64: Internal
+          Node at 0, 0, 32: Internal
+            Node at 0, 0, 16: Internal
+              Node at 0, 0, 8:
+              (r3, 7, 7)
+              (r5, 6, 7)
+              Node at 8, 0, 8: Empty
+              Node at 0, 8, 8: Empty
+              Node at 8, 8, 8:
+              (r1, 10, 10)
+              (r2, 15, 15)
+            Node at 16, 0, 16: Empty
+            Node at 0, 16, 16: Empty
+            Node at 16, 16, 16:
+            (r4, 20, 25)
+          Node at 32, 0, 32: Empty
+          Node at 0, 32, 32: Empty
+          Node at 32, 32, 32: Empty
+        Node at 64, 0, 64: Empty
+        Node at 0, 64, 64: Empty
+        Node at 64, 64, 64:
+        (r15, 120, 117)
+        (r14, 120, 117)
+      Node at 128, 0, 128: Empty
+      Node at 0, 128, 128:
+      (r12, 108, 136)
+      Node at 128, 128, 128: Empty
+    Node at 256, 0, 256: Empty
+    Node at 0, 256, 256: Empty
+    Node at 256, 256, 256: Empty
+  Node at 512, 0, 512: Empty
+  Node at 0, 512, 512: Empty
+  Node at 512, 512, 512: Empty
+29 quadtree nodes printed
+Point removed: (r5, 6, 7)
+SkipList dump:
+Node has depth 3, Value (null)
+Node has depth 2, Value (r1, 10, 10)
+Node has depth 3, Value (r12, 108, 136)
+Node has depth 3, Value (r14, 120, 117)
+Node has depth 1, Value (r15, 120, 117)
+Node has depth 2, Value (r2, 15, 15)
+Node has depth 2, Value (r3, 7, 7)
+Node has depth 3, Value (r4, 20, 25)
+SkipList size is: 7
+QuadTree dump:
+Node at 0, 0, 1024: Internal
+  Node at 0, 0, 512: Internal
+    Node at 0, 0, 256: Internal
+      Node at 0, 0, 128: Internal
+        Node at 0, 0, 64: Internal
+          Node at 0, 0, 32: Internal
+            Node at 0, 0, 16:
+            (r2, 15, 15)
+            (r1, 10, 10)
+            (r3, 7, 7)
+            Node at 16, 0, 16: Empty
+            Node at 0, 16, 16: Empty
+            Node at 16, 16, 16:
+            (r4, 20, 25)
+          Node at 32, 0, 32: Empty
+          Node at 0, 32, 32: Empty
+          Node at 32, 32, 32: Empty
+        Node at 64, 0, 64: Empty
+        Node at 0, 64, 64: Empty
+        Node at 64, 64, 64:
+        (r15, 120, 117)
+        (r14, 120, 117)
+      Node at 128, 0, 128: Empty
+      Node at 0, 128, 128:
+      (r12, 108, 136)
+      Node at 128, 128, 128: Empty
+    Node at 256, 0, 256: Empty
+    Node at 0, 256, 256: Empty
+    Node at 256, 256, 256: Empty
+  Node at 512, 0, 512: Empty
+  Node at 0, 512, 512: Empty
+  Node at 512, 512, 512: Empty
+25 quadtree nodes printed
+Point not removed: r5
+SkipList dump:
+Node has depth 3, Value (null)
+Node has depth 2, Value (r1, 10, 10)
+Node has depth 3, Value (r12, 108, 136)
+Node has depth 3, Value (r14, 120, 117)
+Node has depth 1, Value (r15, 120, 117)
+Node has depth 2, Value (r2, 15, 15)
+Node has depth 2, Value (r3, 7, 7)
+Node has depth 3, Value (r4, 20, 25)
+SkipList size is: 7
+QuadTree dump:
+Node at 0, 0, 1024: Internal
+  Node at 0, 0, 512: Internal
+    Node at 0, 0, 256: Internal
+      Node at 0, 0, 128: Internal
+        Node at 0, 0, 64: Internal
+          Node at 0, 0, 32: Internal
+            Node at 0, 0, 16:
+            (r2, 15, 15)
+            (r1, 10, 10)
+            (r3, 7, 7)
+            Node at 16, 0, 16: Empty
+            Node at 0, 16, 16: Empty
+            Node at 16, 16, 16:
+            (r4, 20, 25)
+          Node at 32, 0, 32: Empty
+          Node at 0, 32, 32: Empty
+          Node at 32, 32, 32: Empty
+        Node at 64, 0, 64: Empty
+        Node at 0, 64, 64: Empty
+        Node at 64, 64, 64:
+        (r15, 120, 117)
+        (r14, 120, 117)
+      Node at 128, 0, 128: Empty
+      Node at 0, 128, 128:
+      (r12, 108, 136)
+      Node at 128, 128, 128: Empty
+    Node at 256, 0, 256: Empty
+    Node at 0, 256, 256: Empty
+    Node at 256, 256, 256: Empty
+  Node at 512, 0, 512: Empty
+  Node at 0, 512, 512: Empty
+  Node at 512, 512, 512: Empty
+25 quadtree nodes printed
+Found (r14, 120, 117)
+Point not found: r11
+Point not found: R11
+Point not removed: r10
+Point not removed: r11
+Point removed: (r12, 108, 136)
+Point not removed: r13
+SkipList dump:
+Node has depth 3, Value (null)
+Node has depth 2, Value (r1, 10, 10)
+Node has depth 3, Value (r14, 120, 117)
+Node has depth 1, Value (r15, 120, 117)
+Node has depth 2, Value (r2, 15, 15)
+Node has depth 2, Value (r3, 7, 7)
+Node has depth 3, Value (r4, 20, 25)
+SkipList size is: 6
+QuadTree dump:
+Node at 0, 0, 1024: Internal
+  Node at 0, 0, 512: Internal
+    Node at 0, 0, 256: Internal
+      Node at 0, 0, 128: Internal
+        Node at 0, 0, 64: Internal
+          Node at 0, 0, 32: Internal
+            Node at 0, 0, 16:
+            (r2, 15, 15)
+            (r1, 10, 10)
+            (r3, 7, 7)
+            Node at 16, 0, 16: Empty
+            Node at 0, 16, 16: Empty
+            Node at 16, 16, 16:
+            (r4, 20, 25)
+          Node at 32, 0, 32: Empty
+          Node at 0, 32, 32: Empty
+          Node at 32, 32, 32: Empty
+        Node at 64, 0, 64: Empty
+        Node at 0, 64, 64: Empty
+        Node at 64, 64, 64:
+        (r15, 120, 117)
+        (r14, 120, 117)
+      Node at 128, 0, 128: Empty
+      Node at 0, 128, 128: Empty
+      Node at 128, 128, 128: Empty
+    Node at 256, 0, 256: Empty
+    Node at 0, 256, 256: Empty
+    Node at 256, 256, 256: Empty
+  Node at 512, 0, 512: Empty
+  Node at 0, 512, 512: Empty
+  Node at 512, 512, 512: Empty
+25 quadtree nodes printed
+Point removed: (r15, 120, 117)
+SkipList dump:
+Node has depth 3, Value (null)
+Node has depth 2, Value (r1, 10, 10)
+Node has depth 3, Value (r14, 120, 117)
+Node has depth 2, Value (r2, 15, 15)
+Node has depth 2, Value (r3, 7, 7)
+Node has depth 3, Value (r4, 20, 25)
+SkipList size is: 5
+QuadTree dump:
+Node at 0, 0, 1024: Internal
+  Node at 0, 0, 512: Internal
+    Node at 0, 0, 256: Internal
+      Node at 0, 0, 128: Internal
+        Node at 0, 0, 64: Internal
+          Node at 0, 0, 32: Internal
+            Node at 0, 0, 16:
+            (r2, 15, 15)
+            (r1, 10, 10)
+            (r3, 7, 7)
+            Node at 16, 0, 16: Empty
+            Node at 0, 16, 16: Empty
+            Node at 16, 16, 16:
+            (r4, 20, 25)
+          Node at 32, 0, 32: Empty
+          Node at 0, 32, 32: Empty
+          Node at 32, 32, 32: Empty
+        Node at 64, 0, 64: Empty
+        Node at 0, 64, 64: Empty
+        Node at 64, 64, 64:
+        (r14, 120, 117)
+      Node at 128, 0, 128: Empty
+      Node at 0, 128, 128: Empty
+      Node at 128, 128, 128: Empty
+    Node at 256, 0, 256: Empty
+    Node at 0, 256, 256: Empty
+    Node at 256, 256, 256: Empty
+  Node at 512, 0, 512: Empty
+  Node at 0, 512, 512: Empty
+  Node at 512, 512, 512: Empty
+25 quadtree nodes printed
+Point not found: (100, 1000)
+Point removed: (r14, 120, 117)
+Points intersecting region (-5, -5, 20, 20):
+Point found: (r1, 10, 10)
+Point found: (r3, 7, 7)
+7 quadtree nodes visited
+Point inserted: (big, 10, 10)
+Duplicate points:
+(10, 10)
+Found (r2, 15, 15)
+Found (r4, 20, 25)
+Point removed: (r4, 20, 25)
+Points intersecting region (10, 10, 100, 100):
+Point found: (r1, 10, 10)
+Point found: (r2, 15, 15)
+Point found: (big, 10, 10)
+17 quadtree nodes visited
+SkipList dump:
+Node has depth 3, Value (null)
+Node has depth 1, Value (big, 10, 10)
+Node has depth 2, Value (r1, 10, 10)
+Node has depth 2, Value (r2, 15, 15)
+Node has depth 2, Value (r3, 7, 7)
+SkipList size is: 4
+QuadTree dump:
+Node at 0, 0, 1024: Internal
+  Node at 0, 0, 512: Internal
+    Node at 0, 0, 256: Internal
+      Node at 0, 0, 128: Internal
+        Node at 0, 0, 64: Internal
+          Node at 0, 0, 32: Internal
+            Node at 0, 0, 16: Internal
+              Node at 0, 0, 8:
+              (r3, 7, 7)
+              Node at 8, 0, 8: Empty
+              Node at 0, 8, 8: Empty
+              Node at 8, 8, 8:
+              (r1, 10, 10)
+              (r2, 15, 15)
+              (big, 10, 10)
+            Node at 16, 0, 16: Empty
+            Node at 0, 16, 16: Empty
+            Node at 16, 16, 16: Empty
+          Node at 32, 0, 32: Empty
+          Node at 0, 32, 32: Empty
+          Node at 32, 32, 32: Empty
+        Node at 64, 0, 64: Empty
+        Node at 0, 64, 64: Empty
+        Node at 64, 64, 64: Empty
+      Node at 128, 0, 128: Empty
+      Node at 0, 128, 128: Empty
+      Node at 128, 128, 128: Empty
+    Node at 256, 0, 256: Empty
+    Node at 0, 256, 256: Empty
+    Node at 256, 256, 256: Empty
+  Node at 512, 0, 512: Empty
+  Node at 0, 512, 512: Empty
+  Node at 512, 512, 512: Empty
+29 quadtree nodes printed

@@ -1,0 +1,13 @@
+insert a -1 1
+insert a 1 -1
+insert b 1024 1
+insert b 1 1024
+insert c 2000 1
+insert c 1 2000
+remove -1 1
+remove 1 -1
+remove 1 1024
+remove 1024 1
+remove 2000 1
+remove 1 2000
+dump

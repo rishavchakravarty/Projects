@@ -1,0 +1,28 @@
+insert a1 10 10
+insert a2 10 10
+insert a3 10 10
+insert a4 10 10
+insert a5 10 10
+insert x1 20 20
+insert x2 20 20
+insert b1 200 200
+insert b2 200 201
+insert b3 200 200
+insert c1 600 600
+insert c2 600 600
+insert c3 600 601
+insert d1 200 600
+insert d2 200 601
+insert d3 200 601
+insert e1 600 200
+insert e2 600 201
+insert e3 600 201
+insert f1 0 1000
+insert f2 0 1001
+insert f3 1 1000
+duplicates
+insert f1 600 202
+remove 600 202
+regionsearch 11 10 2 2
+regionsearch 10 11 2 2
+dump

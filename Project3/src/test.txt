@@ -1,0 +1,43 @@
+insert r1 10 10
+regionsearch   11 11  0 0
+insert r2 15 15
+
+insert r3 7 7
+
+insert r4 20 25
+insert r4 20 12
+insert r5 6 7
+insert r12 108 136
+insert r14 120 117
+insert r15 120 117
+   dump
+remove r_r
+remove inExistRec 
+search     r4    
+	remove r4
+	dump
+	remove 6 7
+	dump
+	remove r5
+	dump
+  search   r14   
+  search r11
+       search R11
+remove r10
+remove r11
+remove r12
+remove r13
+dump
+remove 120 117
+dump
+remove 100 1000
+remove r14
+regionsearch   -5 -5 20 20 
+insert big 10 10
+duplicates
+search r2
+search r4
+remove 20 25
+regionsearch 10 10 100 100
+ 
+dump

@@ -1,0 +1,18 @@
+Point rejected: (a, -1, 1)
+Point rejected: (a, 1, -1)
+Point rejected: (b, 1024, 1)
+Point rejected: (b, 1, 1024)
+Point rejected: (c, 2000, 1)
+Point rejected: (c, 1, 2000)
+Point rejected: (-1, 1)
+Point rejected: (1, -1)
+Point not found: (1, 1024)
+Point not found: (1024, 1)
+Point not found: (2000, 1)
+Point not found: (1, 2000)
+SkipList dump:
+Node has depth 1, Value (null)
+SkipList size is: 0
+QuadTree dump:
+Node at 0, 0, 1024: Empty
+1 quadtree nodes printed
